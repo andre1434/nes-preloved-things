@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#78c8f5"><title>Nes Preloved Things — Online Catalog</title>
+<style>
+:root{--green:#176fae;--green2:#125b91;--cream:#edf5fb;--sand:#c5e2f7;--ink:#17334a;--muted:#5f7487;--line:#cfe0ed;--white:#fff;--gold:#8fc8ed;--red:#b83245}*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:12px 14px;font-weight:700}.top{background:#8fc4e8;color:var(--ink);padding:18px 16px 20px;border-bottom:1px solid #78afd6}.topinner,.wrap{max-width:1080px;margin:auto}.brand{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:850;letter-spacing:.07em;text-align:center}.brand img{display:block;width:min(100%,460px);max-height:none;object-fit:contain;border-radius:10px}.tag{display:none}.top h1{text-align:center;font-size:clamp(27px,6vw,42px);line-height:1.08;margin:12px auto 8px;max-width:800px}.top p{color:var(--muted);max-width:760px;margin:0 auto;text-align:center}.howto{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:0 0 18px}.howto h2{font-size:18px;margin:0 0 8px}.howto p{margin:7px 0;color:var(--ink)}.howto strong{color:var(--green2)}.howto .smallnote{font-size:12px;color:var(--muted)}.wrap{padding:18px 14px 70px}.tools{display:flex;gap:9px;margin:0 0 14px}.search{flex:1;min-width:0;border:1px solid var(--line);border-radius:13px;background:#fff;padding:13px 14px}.ghost{background:#fff;border:1px solid var(--line);color:var(--green)}.filters{display:flex;gap:8px;overflow:auto;padding-bottom:12px}.chip{white-space:nowrap;border:1px solid #cfe0ed;background:#fff;border-radius:999px;padding:8px 13px;color:var(--green);font-size:13px}.chip.active{background:#176fae;color:#fff;border-color:#176fae}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{background:#fff;border:1px solid var(--line);border-radius:17px;overflow:hidden;min-width:0}.photo{height:190px;background:#e4f5ff;display:grid;place-items:center;color:#687269;position:relative;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover;cursor:zoom-in}.activebid{display:inline-block;margin-top:8px;background:#e3f4ff;color:#075b91;border:1px solid #9bd8fb;border-radius:9px;padding:5px 8px;font-size:11px;font-weight:850;letter-spacing:.03em}.hoverpreview{display:none;position:fixed;z-index:30;top:50%;left:50%;transform:translate(-50%,-50%);max-width:min(65vw,560px);max-height:75vh;padding:8px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 55px #0005;pointer-events:none}.hoverpreview img{display:block;max-width:100%;max-height:calc(75vh - 16px);object-fit:contain}.imageviewer{position:fixed;inset:0;z-index:40;background:#07131de8;display:none;align-items:center;justify-content:center;padding:24px}.imageviewer.show{display:flex}.imageviewer img{max-width:95vw;max-height:88vh;object-fit:contain;border-radius:10px}.imageviewer button{position:absolute;top:14px;right:14px;background:#fff;color:#183247}.placeholder{font-size:42px}.code{position:absolute;top:10px;left:10px;background:#ffffffed;color:#126da6;padding:5px 8px;border-radius:8px;font-size:12px;font-weight:850}.state{position:absolute;top:10px;right:10px;padding:5px 8px;border-radius:8px;background:#e0f5ff;color:#126da6;font-size:11px;font-weight:800}.card.sold .photo:after{content:'SOLD';position:absolute;inset:0;background:#2027238a;color:#fff;display:grid;place-items:center;font-weight:900;letter-spacing:.2em;font-size:25px}.card.sold .details{opacity:.58}.details{padding:12px}.name{font-weight:800;font-size:16px;margin:0 0 4px}.desc{font-size:12px;color:var(--muted);min-height:32px}.prices{display:flex;justify-content:space-between;gap:6px;margin:11px 0 8px;align-items:end}.price-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.price{font-weight:850;font-size:17px}.current{color:var(--green2)}.bidrow{display:flex;gap:7px;margin-top:10px}.bidrow button{flex:1;padding:10px 8px;font-size:13px}.primary{background:var(--green);color:#fff}.secondary{background:#dff3ff;color:#126da6}.disabled{background:#e5e7e2;color:#818780;cursor:not-allowed}.foot{text-align:center;color:var(--muted);font-size:12px;padding:24px 10px}.adminbar{display:flex;justify-content:space-between;align-items:center;margin:20px 0 12px;padding:12px 14px;border:1px dashed #a9c8df;border-radius:12px;color:var(--muted);font-size:12px}.modalback{position:fixed;inset:0;background:#101a16a8;display:none;align-items:end;justify-content:center;z-index:10;padding:0}.modalback.show{display:flex}.modal{background:#fff;width:100%;max-width:540px;max-height:92vh;overflow:auto;border-radius:22px 22px 0 0;padding:22px 18px 28px}.modalhead{display:flex;justify-content:space-between;align-items:center;gap:12px}.modal h2{margin:0;font-size:23px}.x{background:#f0f1ed;padding:8px 11px}.field{display:grid;gap:5px;margin:13px 0}.field label{font-weight:700;font-size:13px}.field input,.field textarea,.field select{width:100%;border:1px solid #d8ddd7;border-radius:11px;padding:12px;background:#fff;color:#111827} .field input::placeholder,.field textarea::placeholder{color:#6b7280;opacity:1} .search{color:#111827} .search::placeholder{color:#6b7280;opacity:1}.hint{font-size:12px;color:var(--muted)}.full{width:100%;margin-top:8px}.notice{padding:11px 12px;border-radius:11px;background:#eaf7ff;font-size:12px;color:#4d574f;margin:12px 0}.adminview{display:none}.adminview.show{display:block}.adminlayout{display:grid;grid-template-columns:1fr;gap:14px}.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px}.panel h3{margin:0 0 12px}.tablewrap{overflow:auto}.table{width:100%;border-collapse:collapse;font-size:13px}.table th,.table td{text-align:left;padding:10px;border-bottom:1px solid var(--line);white-space:nowrap}.tiny{padding:7px 9px;font-size:12px;border-radius:8px}.adminitem{display:grid;grid-template-columns:1fr 1fr;gap:8px}.adminitem .field{margin:5px 0}.hidden{display:none!important}.barlinks{display:flex;gap:8px;align-items:center}.smallbtn{font-size:12px;padding:8px 10px}.adminnotice{background:#e7f6ff;padding:12px;border-radius:12px;font-size:12px;margin-bottom:12px}@media(min-width:650px){.wrap{padding:24px 22px 70px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.photo{height:240px}.modalback{align-items:center;padding:20px}.modal{border-radius:22px}.adminlayout{grid-template-columns:1fr 1fr}.adminitem{grid-template-columns:1fr 1fr}}@media(min-width:950px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.photo{height:245px}}
+</style></head>
+<body>
+<header class="top"><div class="topinner"><div class="brand"><img src="nes-preloved-things-logo.png" alt="Nes Preloved Things logo"></div><h1>Find your next favorite.</h1></div></header>
+<main class="wrap" id="storeView">
+ <section class="howto" aria-label="How bidding, locking, payment and shipping work"><h2>How it works</h2><p><strong>Place a bid:</strong> Add a bid to “mine” an item. If no other user locks the item, we’ll reach out via TikTok chat to get more information.</p><p><strong>Lock an item:</strong> Lock an item to make it yours. We’ll reach out via TikTok chat—please look out for our direct message so we can get your information.</p><p><strong>Payment &amp; shipping:</strong> Payment must be completed first. Shipping fees depend on your location. Once payment is confirmed, we’ll ship the item to you.</p><p class="smallnote">We’ll contact you directly via TikTok chat after a bid or lock is placed. Please make sure your TikTok messages are accessible.</p></section>
+ <div class="tools"><input id="search" class="search" placeholder="Search item code or name (e.g. A1)" aria-label="Search items"><button class="ghost" id="clearSearch">Clear</button></div>
+ <div class="filters"><button class="chip active" data-filter="all">All items</button><button class="chip" data-filter="Available">Available</button><button class="chip" data-filter="Locked">Locked</button><button class="chip" data-filter="Sold">Sold</button></div>
+ <div id="catalog" class="grid"></div>
+ <div class="foot">Nes Preloved Things · Item availability may change</div>
+</main>
+<main class="wrap adminview" id="adminView">
+ <div class="tools"><button class="ghost" id="backStore">← Public catalog</button><button class="ghost" id="adminSignOut" style="display:none">Sign out</button></div>
+ <section class="panel" id="adminLoginPanel">
+  <h2 style="margin-top:0">Administrator sign in</h2>
+  <p class="hint">This area is restricted to the administrator account registered in Supabase.</p>
+  <form id="adminLoginForm">
+   <div class="field"><label for="adminEmail">Email</label><input id="adminEmail" type="email" autocomplete="username" required></div>
+   <div class="field"><label for="adminPassword">Password</label><input id="adminPassword" type="password" autocomplete="current-password" required></div>
+   <button class="primary full" type="submit">Sign in</button><p id="adminLoginMessage" class="notice" role="status"></p>
+  </form>
+ </section>
+ <div id="adminDashboard" class="hidden">
+  <div class="adminnotice"><strong>Administrator dashboard.</strong> Buyer usernames and activity are private and only loaded after administrator access is verified.</div>
+  <div class="tools"><button class="primary" id="newItemBtn">＋ Add item</button><button class="ghost" id="refreshAdminBtn">Refresh data</button></div>
+  <section class="panel"><h3>Inventory</h3><div class="tablewrap"><table class="table"><thead><tr><th>Item</th><th>Start</th><th>Lock</th><th>Status</th><th>Active activity</th><th>Actions</th></tr></thead><tbody id="adminInventory"></tbody></table></div></section>
+  <section class="panel" style="margin-top:14px"><h3>Private bids, lock requests & activity</h3><div class="tablewrap"><table class="table"><thead><tr><th>Item</th><th>Username</th><th>Event</th><th>Amount / details</th><th>Time</th><th>Actions</th></tr></thead><tbody id="adminActivity"></tbody></table></div></section>
+ </div>
+</main>
+<div class="adminbar wrap" style="padding-top:10px;padding-bottom:10px"><span>Nes Preloved Things</span><div class="barlinks"><span id="connectionStatus">Connecting…</span><button class="ghost smallbtn" id="adminBtn">Administrator</button></div></div>
+<div class="hoverpreview" id="hoverPreview"><img id="hoverPreviewImage" alt="Larger product preview"></div>
+<div class="imageviewer" id="imageViewer" role="dialog" aria-modal="true" aria-label="Product photo preview"><button id="closeImageViewer" aria-label="Close photo preview">Close ✕</button><img id="imageViewerImage" alt=""></div>
+<div class="modalback" id="modalBack"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modalhead"><h2 id="modalTitle">Place a bid</h2><button class="x" id="closeModal" aria-label="Close">✕</button></div><div id="modalBody"></div></section></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL = "https://osfxgszqxbmmmfbnopan.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_QJ7YNyS0eV8KOnQBuWlLOA_Ta0kvGbg";
+let supabaseClient = null;
+const $=s=>document.querySelector(s);
+const money=n=>'₱'+Number(n||0).toLocaleString('en-PH');
+let items=[], activity=[], bids=[], locks=[], activeBidCounts=new Map(), activeFilter='all', modalItem=null, modalType='bid', isAdmin=false, editingItem=null;
+const publicStatus = item => item.status==='sold'?'Sold':item.status==='locked'?'Locked':item.status==='hidden'?'Hidden':'Available';
+const itemCode = item => item.code || item.id;
+const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function normalizeUsername(value){const raw=String(value||'').trim().replace(/^@+/, '');return raw?'@'+raw:'';}
+function maskUsername(value){const raw=String(value||'').trim().replace(/^@+/, '');if(!raw)return 'Buyer';return '@'+raw.slice(0,2)+'****';}
+function bindUsernameInput(input){if(!input)return;input.addEventListener('input',()=>{const raw=input.value;if(!raw.startsWith('@'))input.value='@'+raw.replace(/^@+/, '');else input.value='@'+raw.slice(1).replace(/^@+/, '');});input.addEventListener('blur',()=>{input.value=normalizeUsername(input.value)||'@';});}
+function statusForPublic(item){return publicStatus(item);}
+function itemHasActiveBid(id){return bids.some(b=>b.item_id===id&&b.status==='active');}
+function itemHasActiveLock(id){return locks.some(l=>l.item_id===id&&l.status==='active');}
+function hasAnyActiveBids(id){return itemHasActiveBid(id);}
+function setConnection(text,good=false){$('#connectionStatus').textContent=text;$('#connectionStatus').style.color=good?'#e8f7ff':'#fff4ce';}
+function showError(prefix,error){console.error(prefix,error);alert(prefix+': '+(error?.message||String(error)));}
+async function initialize(){
+ if(!window.supabase||SUPABASE_URL==='YOUR_SUPABASE_PROJECT_URL'||SUPABASE_PUBLISHABLE_KEY==='YOUR_SUPABASE_PUBLISHABLE_KEY'){
+  setConnection('Setup needed');$('#catalog').innerHTML='<p class="panel">Your site files are ready, but Supabase is not configured yet. Add your project URL and publishable key in index.html, then reload.</p>';return;
+ }
+ supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+ setConnection('Connecting…');
+ try{await loadCatalog();setConnection('Connected to catalog',true);}catch(e){setConnection('Connection issue');$('#catalog').innerHTML='<p class="panel">Could not load the catalog. Check your Supabase URL/key and public items read policy, then reload.</p>';console.error(e);}
+ const {data:{session}}=await supabaseClient.auth.getSession();
+ if(session?.user){await checkAdminSession();}
+ supabaseClient.auth.onAuthStateChange((_event,session)=>{if(!session){isAdmin=false;showAdminLogin();} });
+}
+async function loadCatalog(){
+ const [itemsResult,bidCountResult,bidNamesResult]=await Promise.all([
+  supabaseClient.from('items').select('id,code,name,description,starting_price,lock_price,status,is_visible,image_urls,created_at').eq('is_visible',true).neq('status','hidden').order('created_at',{ascending:false}),
+  supabaseClient.rpc('public_active_bid_counts'),
+  supabaseClient.rpc('public_active_bid_usernames')
+ ]);
+ if(itemsResult.error)throw itemsResult.error;
+ if(bidCountResult.error)throw bidCountResult.error;
+ if(bidNamesResult.error)throw bidNamesResult.error;
+ activeBidCounts=new Map((bidCountResult.data||[]).map(row=>[row.item_id,Number(row.active_bid_count||0)]));
+ const publicBidNames=new Map();
+ (bidNamesResult.data||[]).forEach(row=>{if(!publicBidNames.has(row.item_id))publicBidNames.set(row.item_id,[]);publicBidNames.get(row.item_id).push(row.masked_username);});
+ items=(itemsResult.data||[]).map(row=>({...row,displayStatus:statusForPublic(row),start:Number(row.starting_price),lock:Number(row.lock_price),desc:row.description||'',image:(row.image_urls||[])[0]||'',activeBidCount:activeBidCounts.get(row.id)||0,activeBidUsernames:publicBidNames.get(row.id)||[]}));
+ render();
+}
+function render(){
+ const q=$('#search').value.trim().toLowerCase();
+ const shown=items.filter(i=>(activeFilter==='all'||statusForPublic(i).toLowerCase()===activeFilter.toLowerCase())&&(itemCode(i)+' '+i.name+' '+i.desc).toLowerCase().includes(q));
+ $('#catalog').innerHTML=shown.map(i=>{const status=statusForPublic(i);const unavailable=status==='Sold'||status==='Locked';return `<article class="card ${status==='Sold'?'sold':''}"><div class="photo">${i.image?`<img src="${escapeHtml(i.image)}" alt="${escapeHtml(i.name)}" onclick="openImageViewer('${escapeHtml(i.image)}','${escapeHtml(i.name)}')">`:`<div class="placeholder">♧</div>`}<span class="code">${escapeHtml(itemCode(i))}</span><span class="state">${status}</span></div><div class="details"><h2 class="name">${escapeHtml(i.name)}</h2><div class="desc">${escapeHtml(i.desc||'Details to be added')}</div>${i.activeBidCount>0?`<div class="activebid" aria-label="Active bid by ${escapeHtml((i.activeBidUsernames||[]).join(', '))}">● ACTIVE BID BY ${escapeHtml((i.activeBidUsernames||[]).join(', '))}</div>`:''}<div class="prices"><div><div class="price-label">Starting price</div><div class="price current">${money(i.start)}</div></div><div style="text-align:right"><div class="price-label">Lock price</div><div class="price">${money(i.lock)}</div></div></div><div class="hint">Bid at the listed starting price · Or lock at the fixed lock price</div><div class="bidrow">${unavailable?`<button class="disabled" disabled>${status==='Sold'?'Sold out':'Locked'}</button>`:`<button class="secondary" onclick="openAction('${i.id}','bid')">Bid ${money(i.start)}</button><button class="primary" onclick="openAction('${i.id}','lock')">Lock item</button>`}${status!=='Sold'?`<button class="ghost" onclick="openWithdraw('${i.id}')">Withdraw a bid</button>`:''}</div></div></article>`;}).join('')||'<p>No items match your search.</p>';
+ document.querySelectorAll('.photo img').forEach(img=>{img.addEventListener('pointerenter',()=>{if(matchMedia('(hover: hover) and (pointer: fine)').matches){$('#hoverPreviewImage').src=img.src;$('#hoverPreview').style.display='block';}});img.addEventListener('pointerleave',()=>{$('#hoverPreview').style.display='none';});});
+ if(isAdmin)renderAdmin();
+}
+async function ensureBuyerSession(){
+  const { data: { session }, error } = await supabaseClient.auth.getSession();
+
+  if (error) {
+    console.error("Session check failed:", error);
+    throw error;
+  }
+
+  if (!session) {
+    const { data, error: signInError } =
+      await supabaseClient.auth.signInAnonymously();
+
+    if (signInError) {
+      console.error("Anonymous sign-in failed:", signInError);
+      alert("Guest session error: " + signInError.message);
+      throw signInError;
+    }
+
+    console.log("Anonymous guest session created.");
+  }
+}
+function openAction(id,type){
+ modalItem=items.find(i=>i.id===id);modalType=type;if(!modalItem)return;
+ const code=itemCode(modalItem), start=modalItem.start, lock=modalItem.lock;
+ $('#modalTitle').textContent=type==='bid'?'Bid at '+money(start):'Lock '+code+' at '+money(lock);
+ const remembered=normalizeUsername(sessionStorage.getItem('nes_bid_username')||'');
+ if(type==='bid'){$('#modalBody').innerHTML=`<p><strong>${escapeHtml(code)} — ${escapeHtml(modalItem.name)}</strong></p><p>Your bid will be exactly the listed starting price: <strong>${money(start)}</strong>.</p><div class="field"><label for="username">TikTok username</label><input id="username" placeholder="@yourusername" value="${escapeHtml(remembered||'@')}" autocomplete="username" required></div><p class="hint">No bid increments and no amount to type. Choose “Lock item” if you prefer the fixed lock price.</p><button class="primary full" id="submitAction">Confirm bid at ${money(start)}</button><div class="notice">You can later withdraw this bid by entering the same TikTok username, even from another device. Usernames are not verified.</div>`;}
+ else{$('#modalBody').innerHTML=`<p>You are requesting to lock <strong>${escapeHtml(code)} — ${escapeHtml(modalItem.name)}</strong> for <strong>${money(lock)}</strong>.</p><div class="field"><label for="lockUsername">TikTok username *</label><input id="lockUsername" placeholder="@yourusername" value="${escapeHtml(remembered||'@')}" autocomplete="username" required></div><p class="hint">That's all we need for now. Nes can arrange contact and delivery details privately later.</p><button class="primary full" id="submitAction">Confirm item lock</button><div class="notice">A lock request cannot be withdrawn by the buyer.</div>`;}
+ $('#modalBack').classList.add('show');bindUsernameInput($('#username'));bindUsernameInput($('#lockUsername'));$('#submitAction').onclick=submitAction;
+}
+function openWithdraw(id){modalItem=items.find(i=>i.id===id);modalType='withdraw';if(!modalItem)return;$('#modalTitle').textContent='Withdraw bid · '+itemCode(modalItem);$('#modalBody').innerHTML=`<p>Enter the TikTok username you used to bid on <strong>${escapeHtml(itemCode(modalItem))} — ${escapeHtml(modalItem.name)}</strong>.</p><div class="field"><label for="withdrawUsername">TikTok username</label><input id="withdrawUsername" placeholder="@yourusername" value="@" autocomplete="off" required></div><p class="hint">Enter the same TikTok username you used when bidding. This works across devices. If you have an active lock on the item, or the item is sold, the bid cannot be withdrawn. Usernames are not verified, so only enter your own.</p><button class="primary full" id="confirmWithdraw">Confirm withdrawal</button><div id="withdrawMessage" class="notice hidden" role="status"></div>`;$('#modalBack').classList.add('show');bindUsernameInput($('#withdrawUsername'));$('#confirmWithdraw').onclick=()=>confirmWithdraw(id);}
+async function confirmWithdraw(id){const input=$('#withdrawUsername'),username=normalizeUsername(input?.value),message=$('#withdrawMessage');if(!username||username==='@'){message.textContent='Please enter the TikTok username you used to bid.';message.classList.remove('hidden');return;}try{const {error}=await supabaseClient.rpc('withdraw_bid_by_username',{p_item_id:id,p_username:username});if(error){const m=error.message||'';message.textContent=m.includes('You did not make an active bid')?'You did not make an active bid on this item.':m.includes('sold')?'This item is sold and bids can no longer be withdrawn.':m.includes('lock')?'A lock request cannot be withdrawn.':m;message.classList.remove('hidden');return;}closeModal();await loadCatalog();alert('Your bid withdrawal was recorded.');}catch(e){message.textContent=e.message||'Unable to withdraw this bid.';message.classList.remove('hidden');}}
+async function submitAction(){const i=items.find(x=>x.id===modalItem?.id);if(!i)return;const input=modalType==='bid'?$('#username'):$('#lockUsername');const username=normalizeUsername(input?.value);if(!username||username==='@'){alert('Please enter your TikTok username.');input?.focus();return;}if(!/^@[A-Za-z0-9._]{1,24}$/.test(username)){alert('Please enter a valid TikTok username (letters, numbers, periods, and underscores; up to 24 characters).');return;}try{await ensureBuyerSession();const rpcName=modalType==='bid'?'place_bid':'lock_item';const {error}=await supabaseClient.rpc(rpcName,{p_item_id:i.id,p_username:username});if(error)throw error;sessionStorage.setItem('nes_bid_username',username);closeModal();await loadCatalog();alert(modalType==='bid'?'Bid placed successfully! If no other user locks the item, we will reach out via TikTok chat to get more information. Please keep an eye on your messages.':'Item locked successfully! We will reach out via TikTok chat. Please look out for our direct message so we can get your information and arrange your purchase.');}catch(e){const msg=e.message||'The action could not be completed.';alert(msg.includes('not available')||msg.includes('locked')?'Sorry, this item is no longer available.':msg);}}
+function closeModal(){$('#modalBack').classList.remove('show');modalItem=null;}
+function showAdminLogin(message=''){isAdmin=false;$('#adminLoginPanel').classList.remove('hidden');$('#adminDashboard').classList.add('hidden');$('#adminSignOut').style.display='none';$('#adminLoginMessage').textContent=message;}
+async function checkAdminSession(){
+ if(!supabaseClient)return;const {data:{session}}=await supabaseClient.auth.getSession();if(!session){showAdminLogin();return;}
+ try{const {data,error}=await supabaseClient.rpc('admin_check_access');if(error||data!==true){isAdmin=false;showAdminLogin('This account does not have administrator access.');return;}isAdmin=true;$('#adminLoginPanel').classList.add('hidden');$('#adminDashboard').classList.remove('hidden');$('#adminSignOut').style.display='inline-block';await refreshAdmin();}
+ catch(e){isAdmin=false;showAdminLogin('Could not verify administrator access. '+(e.message||''));}
+}
+async function refreshAdmin(){if(!isAdmin)return;try{
+ const [itemsRes,bidsRes,locksRes,activityRes]=await Promise.all([
+  supabaseClient.from('items').select('*').order('created_at',{ascending:false}),
+  supabaseClient.from('bids').select('*').order('created_at',{ascending:false}),
+  supabaseClient.from('lock_requests').select('*').order('created_at',{ascending:false}),
+  supabaseClient.from('item_activity').select('*').order('created_at',{ascending:false}).limit(500)
+ ]);
+ const firstError=[itemsRes,bidsRes,locksRes,activityRes].find(r=>r.error)?.error;if(firstError)throw firstError;
+ const allItems=itemsRes.data||[];bids=bidsRes.data||[];locks=locksRes.data||[];activity=activityRes.data||[];
+ renderAdmin(allItems); }catch(e){showError('Unable to load admin data',e);}}
+function renderAdmin(allItems){if(!isAdmin)return;const list=allItems||items;const activeBidsFor=i=>bids.filter(b=>b.item_id===i.id&&b.status==='active');const activeLocksFor=i=>locks.filter(l=>l.item_id===i.id&&l.status==='active');const activeCount=i=>activeBidsFor(i).length+activeLocksFor(i).length;
+ $('#adminInventory').innerHTML=list.map(i=>{const bidButtons=activeBidsFor(i).map(b=>`<button class="ghost tiny" style="border-color:#f3b2b2;color:#a12a35" onclick="cancelBuyerAction('bid','${b.id}')">Cancel bid (${escapeHtml(b.username)})</button>`).join(' ');const lockButtons=activeLocksFor(i).map(l=>`<button class="ghost tiny" style="border-color:#f3b2b2;color:#a12a35" onclick="cancelBuyerAction('lock','${l.id}')">Cancel lock (${escapeHtml(l.username)})</button>`).join(' ');const activeButtons=[bidButtons,lockButtons].filter(Boolean).join('<br><br>');return `<tr><td><strong>${escapeHtml(itemCode(i))}</strong><br>${escapeHtml(i.name)}</td><td>${money(i.starting_price)}</td><td>${money(i.lock_price)}</td><td>${escapeHtml(i.status)}</td><td>${activeCount(i)}</td><td><button class="ghost tiny" onclick="editItem('${i.id}')">Edit</button> <button class="ghost tiny" onclick="changeStatus('${i.id}')">Status</button> <button class="ghost tiny" onclick="removeItem('${i.id}')">Delete item + photos</button>${activeButtons?'<br><br>'+activeButtons:''}</td></tr>`;}).join('')||'<tr><td colspan="6">No inventory items yet.</td></tr>';
+ const codeMap=new Map(list.map(i=>[i.id,i.code]));
+ const rows=[];
+ for(const b of bids){rows.push({item_id:b.item_id,username:b.username,event:b.status==='withdrawn'?'Bid withdrawn':'Bid',amount:b.bid_price,time:b.withdrawn_at||b.created_at});}
+ for(const l of locks){rows.push({item_id:l.item_id,username:l.username,event:l.status==='completed'?'Lock completed':l.status==='cancelled_by_admin'?'Lock cancelled by admin':'Lock request',amount:'—',time:l.completed_at||l.created_at});}
+ for(const a of activity){rows.push({item_id:a.item_id,username:a.username||'—',event:a.event_type,amount:a.details?JSON.stringify(a.details):'—',time:a.created_at});}
+ rows.sort((a,b)=>new Date(b.time||0)-new Date(a.time||0));
+ $('#adminActivity').innerHTML=rows.slice(0,500).map(a=>`<tr><td>${escapeHtml(codeMap.get(a.item_id)||'—')}</td><td>${escapeHtml(a.username||'—')}</td><td>${escapeHtml(a.event||'Activity')}</td><td>${escapeHtml(typeof a.amount==='number'?money(a.amount):String(a.amount??'—'))}</td><td>${escapeHtml(a.time?new Date(a.time).toLocaleString():'—')}</td><td>—</td></tr>`).join('')||'<tr><td colspan="6">No activity recorded yet.</td></tr>';
+}
+function openImageViewer(src,alt='Product photo'){if(!src)return;$('#imageViewerImage').src=src;$('#imageViewerImage').alt=alt;$('#imageViewer').classList.add('show');$('#hoverPreview').style.display='none';}
+function closeImageViewer(){$('#imageViewer').classList.remove('show');$('#imageViewerImage').src='';}
+$('#closeImageViewer').onclick=closeImageViewer;$('#imageViewer').addEventListener('click',e=>{if(e.target===$('#imageViewer'))closeImageViewer();});
+function storagePathFromPublicUrl(url){try{const parsed=new URL(url);const marker='/storage/v1/object/public/item-photos/';const at=parsed.pathname.indexOf(marker);return at>=0?decodeURIComponent(parsed.pathname.slice(at+marker.length)):null;}catch{return null;}}
+async function deleteStoredPhotos(urls){const paths=[...new Set((urls||[]).map(storagePathFromPublicUrl).filter(Boolean))];if(!paths.length)return {deleted:0};const {data,error}=await supabaseClient.storage.from('item-photos').remove(paths);if(error)throw error;return {deleted:(data||[]).length};}
+async function cancelBuyerAction(type,id){if(!isAdmin)return;const isBid=type==='bid';const record=(isBid?bids:locks).find(x=>x.id===id);if(!record||record.status!=='active')return;const label=isBid?'bid':'lock request';if(!confirm(`Cancel this active ${label} from ${record.username}? The cancellation will be recorded in activity history.`))return;try{const {error}=await supabaseClient.rpc(isBid?'admin_cancel_active_bid':'admin_cancel_active_lock',{p_record_id:id});if(error)throw error;await loadCatalog();await refreshAdmin();alert(`The ${label} was cancelled.`);}catch(e){showError(`Unable to cancel ${label}`,e);}}
+function getAdminItem(id){return (window._adminItems||[]).find(i=>i.id===id)||items.find(i=>i.id===id);}
+async function uploadSelectedPhoto(file){if(!file)return null;if(!file.type.startsWith('image/'))throw new Error('Please select an image file.');if(file.size>8*1024*1024)throw new Error('Please choose an image smaller than 8 MB.');const ext=(file.name.split('.').pop()||'jpg').replace(/[^a-zA-Z0-9]/g,'').toLowerCase()||'jpg';const path=`${crypto.randomUUID()}.${ext}`;const {error}=await supabaseClient.storage.from('item-photos').upload(path,file,{upsert:false,contentType:file.type});if(error)throw error;return supabaseClient.storage.from('item-photos').getPublicUrl(path).data.publicUrl;}
+function openItemEditor(id=null){editingItem=id?getAdminItem(id):null;const i=editingItem;$('#modalTitle').textContent=i?'Edit item · '+itemCode(i):'Add a new item';$('#modalBody').innerHTML=`<form id="itemEditorForm"><div class="field"><label for="itemCode">Item code *</label><input id="itemCode" required maxlength="40" value="${escapeHtml(i?.code||'')}"></div><div class="field"><label for="itemName">Item name *</label><input id="itemName" required maxlength="160" value="${escapeHtml(i?.name||'')}"></div><div class="field"><label for="itemDescription">Description</label><textarea id="itemDescription" rows="3">${escapeHtml(i?.description||'')}</textarea></div><div class="field"><label for="itemNotes">Private notes (admin only)</label><textarea id="itemNotes" rows="2">${escapeHtml(i?.notes||'')}</textarea></div><div class="adminitem"><div class="field"><label for="itemStart">Starting price (PHP) *</label><input id="itemStart" type="number" min="0" step="0.01" required value="${escapeHtml(i?.starting_price??'')}"></div><div class="field"><label for="itemLock">Lock price (PHP) *</label><input id="itemLock" type="number" min="0" step="0.01" required value="${escapeHtml(i?.lock_price??'')}"></div></div><div class="field"><label for="itemPhoto">Product photo ${i?.image_urls?.length?'(choose to add/replace)':''}</label><input id="itemPhoto" type="file" accept="image/*"><span class="hint">Maximum 8 MB. Images are stored in the public item-photos bucket.</span></div>${i?.image_urls?.[0]?`<p class="hint">Current photo: <a href="${escapeHtml(i.image_urls[0])}" target="_blank" rel="noopener">View image</a></p>`:''}<button class="primary full" type="submit">${i?'Save changes':'Create item'}</button></form>`;$('#modalBack').classList.add('show');$('#itemEditorForm').onsubmit=saveItemForm;}
+async function saveItemForm(event){event.preventDefault();if(!isAdmin)return;const code=$('#itemCode').value.trim(),name=$('#itemName').value.trim(),description=$('#itemDescription').value.trim(),notes=$('#itemNotes').value.trim(),start=Number($('#itemStart').value),lock=Number($('#itemLock').value),file=$('#itemPhoto').files[0];if(!code||!name||!Number.isFinite(start)||!Number.isFinite(lock)||start<0||lock<start){alert('Enter an item code, name, valid starting price, and a lock price at least as high as the starting price.');return;}
+ const btn=$('#itemEditorForm button[type="submit"]');btn.disabled=true;btn.textContent='Saving…';try{const oldImageUrls=editingItem?.image_urls||[];let imageUrls=oldImageUrls;if(file){const url=await uploadSelectedPhoto(file);imageUrls=[url];}
+ let result;if(editingItem){const activityExists=itemHasActiveBid(editingItem.id)||itemHasActiveLock(editingItem.id);const changedSensitive=code.toLowerCase()!==editingItem.code.toLowerCase()||start!==Number(editingItem.starting_price)||lock!==Number(editingItem.lock_price);let confirmActivity=false;if(activityExists&&changedSensitive){confirmActivity=confirm('This item has active bids or lock requests. Changing its code or prices may affect buyers. Continue and preserve the activity history?');if(!confirmActivity)return;}
+ const {data,error}=await supabaseClient.rpc('admin_update_item',{p_item_id:editingItem.id,p_code:code,p_name:name,p_description:description,p_notes:notes,p_starting_price:start,p_lock_price:lock,p_image_urls:imageUrls,p_confirm_active_activity:confirmActivity});if(error)throw error;result=data;
+ }else{const {data,error}=await supabaseClient.rpc('admin_create_item',{p_code:code,p_name:name,p_description:description,p_notes:notes,p_starting_price:start,p_lock_price:lock,p_image_urls:imageUrls});if(error)throw error;result=data;}
+ if(editingItem&&file&&oldImageUrls.length){try{await deleteStoredPhotos(oldImageUrls);}catch(photoDeleteError){console.warn('Item updated, but the old photo could not be deleted from storage.',photoDeleteError);}}closeModal();await loadCatalog();await refreshAdmin();alert(editingItem?'Item updated.':'Item created.');}catch(e){showError('Unable to save item',e);}finally{if(btn){btn.disabled=false;btn.textContent=editingItem?'Save changes':'Create item';}}}
+function editItem(id){openItemEditor(id);}
+async function changeStatus(id){const i=getAdminItem(id);if(!i)return;const next=prompt('Set status to available, sold, or hidden.',i.status);if(!next)return;const status=next.trim().toLowerCase();if(!['available','sold','hidden'].includes(status)){alert('Use available, sold, or hidden. A locked item must be resolved carefully before reopening.');return;}const activityExists=itemHasActiveBid(id)||itemHasActiveLock(id);let confirmActivity=false;if(activityExists){confirmActivity=confirm('This item has active bids or lock requests. Changing its status can affect buyers. Continue and preserve the activity history?');if(!confirmActivity)return;}try{const {error}=await supabaseClient.rpc('admin_set_item_status',{p_item_id:id,p_status:status,p_confirm_active_activity:confirmActivity});if(error)throw error;await loadCatalog();await refreshAdmin();}catch(e){showError('Unable to change item status',e);}}
+async function removeItem(id){
+ const i=getAdminItem(id);if(!i)return;
+ const hasActivity=itemHasActiveBid(id)||itemHasActiveLock(id);
+ const message=hasActivity
+  ? `Permanently delete ${itemCode(i)} (${i.name}), including all bids, lock requests, and activity history? Its uploaded photos will also be deleted. This cannot be undone.`
+  : `Permanently delete ${itemCode(i)} (${i.name}) and its uploaded photos? This cannot be undone.`;
+ if(!confirm(message))return;
+ try{
+  const {error}=await supabaseClient.rpc('admin_remove_item',{p_item_id:id,p_confirm_active_activity:hasActivity});
+  if(error)throw error;
+  let photoWarning='';
+  try{await deleteStoredPhotos(i.image_urls||[]);}
+  catch(photoError){console.warn('Item was deleted, but photo cleanup failed.',photoError);photoWarning=' The item was deleted, but one or more photo files could not be deleted.';}
+  await loadCatalog();await refreshAdmin();
+  alert('Item permanently deleted, including its bid, lock, and activity history. You can reuse its name.'+photoWarning);
+ }catch(e){showError('Unable to permanently delete item',e);}
+}
+$('#search').addEventListener('input',render);$('#clearSearch').onclick=()=>{$('#search').value='';render();};document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{activeFilter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active',x===b));render();});
+$('#closeModal').onclick=closeModal;$('#modalBack').addEventListener('click',e=>{if(e.target===$('#modalBack'))closeModal();});
+$('#adminBtn').onclick=async()=>{$('#storeView').classList.add('hidden');$('#adminView').classList.add('show');window.scrollTo(0,0);if(supabaseClient)await checkAdminSession();else showAdminLogin('Add your Supabase URL and publishable key first.');};
+$('#backStore').onclick=()=>{$('#adminView').classList.remove('show');$('#storeView').classList.remove('hidden');window.scrollTo(0,0);};
+$('#adminLoginForm').onsubmit=async e=>{e.preventDefault();if(!supabaseClient)return;const message=$('#adminLoginMessage');message.textContent='Signing in…';const {error}=await supabaseClient.auth.signInWithPassword({email:$('#adminEmail').value.trim(),password:$('#adminPassword').value});if(error){message.textContent='Sign-in failed: '+error.message;return;}await checkAdminSession();};
+$('#adminSignOut').onclick=async()=>{await supabaseClient.auth.signOut();isAdmin=false;showAdminLogin('You have signed out.');};
+$('#newItemBtn').onclick=()=>openItemEditor();$('#refreshAdminBtn').onclick=async()=>{await loadCatalog();await refreshAdmin();};
+// Keep a complete inventory snapshot for the admin editor.
+const originalRenderAdmin=renderAdmin;
+renderAdmin=function(allItems){if(allItems)window._adminItems=allItems;return originalRenderAdmin(allItems||window._adminItems||items);};
+initialize();
+</script></body></html>
